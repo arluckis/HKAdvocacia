@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanilton Kleiber | Advocacia e Consultoria Jurídica</title>
+  <meta name="description" content="Defesa jurídica estratégica e consultoria cível especializada com atendimento direto e personalizado pelo Dr. Hanilton Kleiber.">
+  
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" role="progressbar" aria-label="Progresso da página"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Header / Navigation Bar (Minimalist Liquid Glass) -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#inicio" class="brand-logo" aria-label="Hanilton Kleiber Advocacia - Início">
+        <img src="public/images/logo.svg" alt="Hanilton Kleiber Advocacia" class="logo-img">
+      </a>
+      
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#servicos" class="nav-link">Atuação</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#faq" class="nav-link">Dúvidas</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu Lateral" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menu de Navegação Mobile">
+      <nav class="mobile-nav">
+        <a href="#inicio" class="mobile-nav-link active">Início</a>
+        <a href="#servicos" class="mobile-nav-link">Atuação</a>
+        <a href="#sobre" class="mobile-nav-link">Sobre</a>
+        <a href="#faq" class="mobile-nav-link">Dúvidas</a>
+        <a href="#contato" class="mobile-nav-link">Contato</a>
+      </nav>
+      <div>
+        <a href="#contato" class="btn-pill btn-primary" style="width: 100%; margin-bottom: 1rem;">Iniciar Atendimento</a>
+        <p style="font-size: 0.8rem; color: var(--text-dim); text-align: center;">Atendimento 100% Online</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+      <div class="hero-bg-glow"></div>
+      <div class="container hero-container">
+        <div class="hero-left">
+          <div class="hero-badge motion-reveal-up" data-delay="50">
+            <span class="status-dot"></span>
+            <span>Direito Cível & Consultoria</span>
+          </div>
+
+          <h1 class="hero-title motion-reveal-up" data-delay="120">
+            Defesa jurídica <span class="text-gold">estratégica</span> e personalizada.
+          </h1>
+
+          <p class="hero-description motion-reveal-up" data-delay="220">
+            Atuação focada na solução ágil de conflitos cíveis, proteção dos seus direitos, segurança patrimonial e atendimento direto com o advogado.
+          </p>
+
+          <div class="hero-actions-group motion-reveal-up" data-delay="320">
+            <a href="#contato" class="btn-pill btn-primary btn-pulse">
+              <span class="btn-text">Fale com o Advogado</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#servicos" class="btn-pill btn-secondary">
+              <span>Áreas de Atuação</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-right">
+          <div class="lawyer-frame motion-reveal-scale" data-delay="150">
+            <div class="lawyer-aura"></div>
+            <img src="public/images/lawyer.png" alt="Hanilton Kleiber - Advogado" class="lawyer-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilares de Compromisso Real (2 Pilares Essenciais) -->
+    <section class="section-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card motion-reveal-stagger" data-delay="100">
+            <div class="stat-number-wrapper">
+              <span class="stat-number">100%</span>
+            </div>
+            <div class="stat-label">Atendimento Direto com o Advogado Titular</div>
+          </div>
+
+          <div class="stat-card motion-reveal-stagger" data-delay="200">
+            <div class="stat-number-wrapper">
+              <span class="stat-number">Digital</span>
+            </div>
+            <div class="stat-label">Atuação 100% Online em Todo o Brasil</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="gold-divider motion-line"></div>
+
+    <!-- Section 2: Áreas de Atuação Cível (2 Especialidades Principais) -->
+    <section id="servicos" class="section-servicos">
+      <div class="container">
+        <div class="section-header motion-reveal-up">
+          <span class="section-tag">Especialidades</span>
+          <h2 class="section-title">Direito Cível & Consultoria</h2>
+          <p class="section-subtitle">
+            Soluções jurídicas estruturadas para defender seus interesses patrimoniais e contratuais.
+          </p>
+        </div>
+        
+        <div class="servicos-grid">
+          <!-- Card 1 -->
+          <div class="servico-card card-tilt motion-reveal-stagger" data-delay="100">
+            <div class="card-border-glow"></div>
+            <div>
+              <div class="servico-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3 class="servico-title">Contratos & Obrigações</h3>
+              <p class="servico-text">
+                Elaboração, análise preventiva e revisão de contratos civis, cobrança de dívidas, execuções de títulos e resolução de inadimplências.
+              </p>
+            </div>
+            <button class="btn-learn-more" data-open-modal="contratos" aria-label="Ver detalhes de Contratos e Obrigações">
+              <span>Ver Detalhes</span>
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="servico-card card-tilt motion-reveal-stagger" data-delay="220">
+            <div class="card-border-glow"></div>
+            <div>
+              <div class="servico-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="servico-title">Indenizações & Danos</h3>
+              <p class="servico-text">
+                Ações de reparação por danos morais e materiais, direito do consumidor, cobranças indevidas, fraudes bancárias e acidentes.
+              </p>
+            </div>
+            <button class="btn-learn-more" data-open-modal="indenizacoes" aria-label="Ver detalhes de Indenizações">
+              <span>Ver Detalhes</span>
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="gold-divider motion-line"></div>
+
+    <!-- Section 3: Sobre Hanilton Kleiber -->
+    <section id="sobre" class="section-equipe">
+      <div class="container sobre-container">
+        <div class="sobre-card motion-reveal-up">
+          <div class="card-border-glow"></div>
+          <div class="sobre-header">
+            <span class="equipe-badge">Advogado Titular</span>
+            <h2 class="equipe-name">Hanilton Kleiber</h2>
+            <span class="equipe-role">Advocacia Cível & Consultoria Jurídica</span>
+          </div>
+          <p class="equipe-bio">
+            Com atuação focada no Direito Cível, o Dr. Hanilton Kleiber oferece suporte jurídico com atendimento 100% online, transparente e humanizado. Cada causa é tratada de forma individualizada, com comunicação ágil e rigor técnico em todas as instâncias processuais.
+          </p>
+          <div class="equipe-credentials">
+            <span class="credential-tag">Inscrito na OAB/RN</span>
+            <span class="credential-tag">Atuação Contenciosa Cível</span>
+            <span class="credential-tag">Direito Contratual & Obrigações</span>
+            <span class="credential-tag">Atendimento 100% Online</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="gold-divider motion-line"></div>
+
+    <!-- Section: FAQ Cível (100% Online) -->
+    <section id="faq" class="section-faq">
+      <div class="container faq-container">
+        <div class="section-header motion-reveal-up">
+          <span class="section-tag">Dúvidas Frequentes</span>
+          <h2 class="section-title">Esclarecimentos Rápidos</h2>
+          <p class="section-subtitle">
+            Tudo o que você precisa saber antes de iniciar seu atendimento.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item motion-reveal-up" data-delay="80">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Como funciona a consulta jurídica inicial?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                A primeira conversa é realizada 100% online via WhatsApp ou videochamada, com agilidade e comodidade para você. Analisamos a documentação do seu caso para apresentar os caminhos jurídicos mais seguros.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item motion-reveal-up" data-delay="160">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>O atendimento é feito diretamente pelo Dr. Hanilton Kleiber?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                Sim. Você terá contato direto com o Dr. Hanilton Kleiber, sem intermediários, recebendo atualizações constantes sobre o andamento do seu caso.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item motion-reveal-up" data-delay="240">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Como posso acompanhar as etapas do meu processo?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                Você recebe informativos a cada nova movimentação relevante, além do número do processo para consulta pública nos sistemas dos tribunais.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item motion-reveal-up" data-delay="320">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>O escritório atende clientes de outros municípios e estados?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                Sim. Atuamos com processos judiciais 100% eletrônicos em todo o Brasil, com atendimento exclusivamente online, reuniões por vídeo e assinatura digital de documentos com total validade jurídica.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item motion-reveal-up" data-delay="400">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Quais documentos preciso separar para a primeira conversa?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-body">
+                Documento de identificação (RG/CNH e CPF), comprovante de residência e os documentos relativos ao caso (contratos, conversas, comprovantes de pagamento ou notificações).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="gold-divider motion-line"></div>
+
+    <!-- Section 4: Contato Direto -->
+    <section id="contato" class="section-contato">
+      <div class="container">
+        <div class="section-header motion-reveal-up">
+          <span class="section-tag">Contato Direto</span>
+          <h2 class="section-title">Envie sua Mensagem</h2>
+          <p class="section-subtitle">
+            Relate brevemente sua situação para receber uma orientação jurídica inicial.
+          </p>
+        </div>
+
+        <div class="contact-box motion-reveal-up" data-delay="100">
+          <form id="contactForm" class="contact-form-direct" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nome" class="form-label">Seu Nome Completo *</label>
+                <div class="form-input-wrap">
+                  <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <input type="text" id="nome" name="nome" class="form-input" required placeholder="Como prefere ser chamado?" autocomplete="name">
+                </div>
+                <span class="field-error-msg" id="nomeError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="telefone" class="form-label">WhatsApp / Telefone *</label>
+                <div class="form-input-wrap">
+                  <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <input type="tel" id="telefone" name="telefone" class="form-input" required placeholder="(84) 99814-3514" autocomplete="tel">
+                </div>
+                <span class="field-error-msg" id="telefoneError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">E-mail *</label>
+                <div class="form-input-wrap">
+                  <svg class="form-input-icon" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <input type="email" id="email" name="email" class="form-input" required placeholder="seuemail@exemplo.com" autocomplete="email">
+                </div>
+                <span class="field-error-msg" id="emailError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="areaSelect" class="form-label">Assunto Principal</label>
+                <select id="areaSelect" name="area" class="form-select">
+                  <option value="Contratos & Cobranças">Contratos & Cobranças</option>
+                  <option value="Indenizações & Danos">Indenizações & Danos Morais/Materiais</option>
+                  <option value="Outra Demanda Cível">Outra Questão Cível</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="mensagem" class="form-label">Como podemos ajudar? *</label>
+                <textarea id="mensagem" name="mensagem" class="form-textarea" rows="4" required placeholder="Descreva brevemente o que aconteceu ou a sua dúvida jurídica..."></textarea>
+                <span class="field-error-msg" id="mensagemError"></span>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="submitBtn" class="btn-pill btn-primary btn-submit btn-pulse">
+                <span id="btnSubmitText">Enviar Mensagem</span>
+                <svg id="btnSubmitSpinner" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" style="display: none; animation: spin 1s linear infinite;">
+                  <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+                  <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg>
+              </button>
+              <div id="formFeedback" style="font-size: 0.9rem; text-align: center; color: var(--text-dim);"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Progressive Disclosure Modal for Services -->
+  <div class="modal-overlay" id="serviceModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalServiceTitle">
+    <div class="modal-window">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Fechar Modal">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-icon-badge" id="modalIconBadge"></div>
+      <h3 class="modal-title" id="modalServiceTitle">Título da Atuação</h3>
+      <p class="modal-desc" id="modalServiceDesc">Descrição detalhada.</p>
+      
+      <h4 style="font-family: var(--font-display); color: var(--gold-400); font-size: 1.05rem; margin-bottom: 0.8rem;">Exemplos de Atuação:</h4>
+      <ul class="modal-topics-list" id="modalServiceTopics"></ul>
+
+      <div>
+        <a href="#contato" class="btn-pill btn-primary" id="modalCtaBtn">
+          <span>Solicitar Orientação Jurídica</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Victory / Success Modal -->
+  <div class="modal-overlay" id="successModalOverlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal-window success-modal">
+      <svg class="checkmark-circle-svg" viewBox="0 0 52 52">
+        <circle class="checkmark-circle-path" cx="26" cy="26" r="25"/>
+        <path class="checkmark-check-path" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+      <h3 class="modal-title" id="successTitle" style="color: var(--gold-bright);">Mensagem Enviada!</h3>
+      <p class="modal-desc" style="max-width: 480px; margin: 0 auto 1.8rem;">
+        Sua mensagem foi recebida com sucesso. O Dr. Hanilton Kleiber entrará em contato em breve pelo WhatsApp ou e-mail informado.
+      </p>
+      <button class="btn-pill btn-primary" id="successCloseBtn" style="margin: 0 auto;">
+        <span>OK</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Action Hub (Único Botão WhatsApp com Símbolo) -->
+  <div class="floating-actions-hub">
+    <a href="https://wa.me/5584998143514?text=Ol%C3%A1%2C%20Dr.%20Hanilton%20Kleiber.%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." target="_blank" rel="noopener noreferrer" class="btn-float-whatsapp" aria-label="WhatsApp">
+      <span class="whatsapp-badge-pulse" title="Online"></span>
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+
+    <!-- Back to Top with Circular Progress Indicator -->
+    <button class="btn-back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">
+      <svg class="progress-ring" viewBox="0 0 50 50">
+        <circle class="progress-ring-circle" cx="25" cy="25" r="23"/>
+      </svg>
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="public/images/logo.svg" alt="Hanilton Kleiber Advocacia" class="logo-img">
+          <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; max-width: 300px;">
+            Advocacia Cível e Consultoria Jurídica personalizada com atendimento 100% online, ágil e transparente.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Áreas de Atuação</a></li>
+            <li><a href="#sobre">Sobre o Advogado</a></li>
+            <li><a href="#faq">Dúvidas Frequentes</a></li>
+            <li><a href="#contato">Contato Direto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Atuação Cível</h4>
+          <ul class="footer-links">
+            <li><a href="#servicos">Contratos & Cobranças</a></li>
+            <li><a href="#servicos">Indenizações & Danos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contato</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.6rem;">
+            WhatsApp: (84) 99814-3514
+          </p>
+          <p style="color: var(--gold-400); font-weight: 600; font-size: 0.9rem;">
+            contato@haniltonkleiber.adv.br
+          </p>
+          <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 0.5rem;">
+            Atendimento 100% online em todo o Brasil.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hanilton Kleiber - Advocacia e Consultoria Jurídica. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="public/js/main.js"></script>
+</body>
+</html>
