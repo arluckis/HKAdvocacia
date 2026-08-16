@@ -286,9 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     8. CONTACT FORM VIA FORMSUBMIT.CO (100% GRATUITO / SEM DNS)
+     8. CONTACT FORM & DDI HANDLER (FORMSUBMIT BOX LAYOUT)
      ========================================================================== */
   const contactForm = document.getElementById('contactForm');
+  const ddiSelect = document.getElementById('ddiSelect');
   const inputNome = document.getElementById('nome');
   const inputTelefone = document.getElementById('telefone');
   const inputEmail = document.getElementById('email');
@@ -301,23 +302,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const successModalOverlay = document.getElementById('successModalOverlay');
   const successCloseBtn = document.getElementById('successCloseBtn');
 
-  // E-mail de destino configurável
+  // E-mail de destino
   const DESTINATION_EMAIL = 'h.aniltonjr@gmail.com';
 
-  // Phone Mask: (XX) XXXXX-XXXX
-  if (inputTelefone) {
-    inputTelefone.addEventListener('input', (e) => {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.slice(0, 11);
+  // Dynamic Phone Mask based on DDI
+  const applyPhoneMask = () => {
+    if (!inputTelefone) return;
+    const currentDDI = ddiSelect ? ddiSelect.value : '55';
+    let v = inputTelefone.value.replace(/\D/g, '');
 
+    if (currentDDI === '55') {
+      if (v.length > 11) v = v.slice(0, 11);
       if (v.length > 6) {
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+        inputTelefone.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
       } else if (v.length > 2) {
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+        inputTelefone.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
       } else if (v.length > 0) {
-        e.target.value = `(${v}`;
+        inputTelefone.value = `(${v}`;
       } else {
-        e.target.value = '';
+        inputTelefone.value = '';
+      }
+    }
+  };
+
+  if (inputTelefone) {
+    inputTelefone.addEventListener('input', applyPhoneMask);
+  }
+
+  if (ddiSelect) {
+    ddiSelect.addEventListener('change', () => {
+      if (ddiSelect.value !== '55') {
+        inputTelefone.placeholder = 'Número com código de área';
+      } else {
+        inputTelefone.placeholder = '(84) 99123-4567';
       }
     });
   }
@@ -358,9 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const isTelefoneValid = validateField(
         inputTelefone,
-        v => v.replace(/\D/g, '').length >= 10,
+        v => v.replace(/\D/g, '').length >= 8,
         'telefoneError',
-        'Informe um número de WhatsApp com DDD válido.'
+        'Informe um número de WhatsApp válido com código de área.'
       );
 
       const isEmailValid = validateField(
@@ -389,25 +406,26 @@ document.addEventListener('DOMContentLoaded', () => {
         formFeedback.style.color = '';
       }
 
+      const ddiVal = ddiSelect ? ddiSelect.value : '55';
       const nomeVal = inputNome.value.trim();
       const telefoneVal = inputTelefone.value.trim();
       const emailVal = inputEmail.value.trim();
-      const areaVal = selectArea ? selectArea.value : 'Direito Cível';
+      const areaVal = selectArea ? selectArea.value : 'Direito do Consumidor';
       const mensagemVal = inputMensagem.value.trim();
 
+      // Formato visual elegante em Box para o FormSubmit
       const payload = {
-        'Nome do Interessado': nomeVal,
-        'Telefone / WhatsApp': telefoneVal,
-        'E-mail': emailVal,
-        'Assunto': areaVal,
-        'Mensagem': mensagemVal,
+        '👤 Nome do Interessado': nomeVal,
+        '📱 WhatsApp / Telefone': `+${ddiVal} ${telefoneVal}`,
+        '✉️ E-mail de Contato': emailVal,
+        '⚖️ Assunto Principal': areaVal,
+        '📝 Mensagem do Cliente': mensagemVal,
         '_subject': `[Novo Contato HK Advocacia] ${nomeVal} - ${areaVal}`,
-        '_template': 'table',
+        '_template': 'box',
         '_captcha': 'false'
       };
 
       try {
-        // Envio direto via FormSubmit AJAX (100% gratuito e sem necessidade de servidor ou DNS)
         const response = await fetch(`https://formsubmit.co/ajax/${DESTINATION_EMAIL}`, {
           method: 'POST',
           headers: {
