@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
     // Chave do Resend e E-mail de destino
     const resendApiKey = process.env.RESEND_API_KEY || 're_FRFis8ZV_Fz4qYt5PekdcUbfAGM8ZE6eV';
-    const targetEmail = process.env.NOTIFICATION_EMAIL || 'arluckis@gmail.com';
+    const targetEmail = process.env.NOTIFICATION_EMAIL || 'h.aniltonjr@gmail.com';
     const timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Fortaleza' });
 
     const subject = `[Novo Contato HK Advocacia] ${nome} - ${area || 'Direito Cível'}`;

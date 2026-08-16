@@ -19,7 +19,7 @@ router.post('/contato', async (req, res) => {
     const mensagemFormatada = area ? `[Assunto: ${area}]
 ${mensagem}` : mensagem;
 
-    // 1. Enviar Notificação por E-mail (arluckis@gmail.com)
+    // 1. Enviar Notificação por E-mail (h.aniltonjr@gmail.com)
     try {
       await sendContactNotification({
         nome,

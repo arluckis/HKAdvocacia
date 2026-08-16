@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const successCloseBtn = document.getElementById('successCloseBtn');
 
   // E-mail de destino configurável
-  const DESTINATION_EMAIL = 'arluckis@gmail.com';
+  const DESTINATION_EMAIL = 'h.aniltonjr@gmail.com';
 
   // Phone Mask: (XX) XXXXX-XXXX
   if (inputTelefone) {
