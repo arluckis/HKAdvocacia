@@ -7,6 +7,7 @@ import { NOTIFICATION_EMAIL, RESEND_API_KEY } from '../config/mail.js';
 export async function sendContactNotification(data) {
   const { nome, telefone, email, area, mensagem } = data;
   const timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Fortaleza' });
+  const senderEmail = process.env.EMAIL_FROM || 'HK Advocacia <onboarding@resend.dev>';
 
   console.log('====================================================');
   console.log('📩 [NOVA MENSAGEM DO FORMULÁRIO DE CONTATO]');
@@ -55,7 +56,7 @@ ${mensagem}`);
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          from: 'HK Advocacia <contato@haniltonkleiber.adv.br>',
+          from: senderEmail,
           to: [NOTIFICATION_EMAIL],
           subject: subject,
           html: htmlContent
@@ -71,6 +72,8 @@ ${mensagem}`);
     } catch (err) {
       console.error('❌ Erro ao enviar e-mail via API Resend:', err);
     }
+  } else {
+    console.warn('ℹ️ Para disparar e-mails reais na Vercel, defina a variável RESEND_API_KEY nas Environment Variables.');
   }
 
   return { success: true, targetEmail: NOTIFICATION_EMAIL };

@@ -381,7 +381,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (submitBtn) submitBtn.disabled = true;
       if (btnSubmitText) btnSubmitText.textContent = 'Enviando...';
       if (btnSubmitSpinner) btnSubmitSpinner.style.display = 'inline-block';
-      if (formFeedback) formFeedback.textContent = '';
+      if (formFeedback) {
+        formFeedback.textContent = '';
+        formFeedback.style.color = '';
+      }
 
       const formData = {
         nome: inputNome.value.trim(),
@@ -392,25 +395,33 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       try {
-        await fetch('/api/contato', {
+        const response = await fetch('/api/contato', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
 
-        triggerGoldConfetti();
-        if (successModalOverlay) {
-          successModalOverlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
+        const result = await response.json().catch(() => ({}));
+
+        if (response.ok && result.success) {
+          triggerGoldConfetti();
+          if (successModalOverlay) {
+            successModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+          contactForm.reset();
+        } else {
+          if (formFeedback) {
+            formFeedback.textContent = result.error || 'Não foi possível enviar a mensagem. Tente novamente.';
+            formFeedback.style.color = '#f43f5e';
+          }
         }
-        contactForm.reset();
       } catch (err) {
-        triggerGoldConfetti();
-        if (successModalOverlay) {
-          successModalOverlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
+        console.error('Erro na requisição:', err);
+        if (formFeedback) {
+          formFeedback.textContent = 'Erro de conexão ao enviar a mensagem. Tente novamente ou use o WhatsApp.';
+          formFeedback.style.color = '#f43f5e';
         }
-        contactForm.reset();
       } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (btnSubmitText) btnSubmitText.textContent = 'Enviar Mensagem';
