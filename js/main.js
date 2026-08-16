@@ -1,6 +1,6 @@
 /**
  * HANILTON KLEIBER ADVOCACIA
- * Motor de Interatividade, Micro-Interações & Acessibilidade Cível
+ * Motor de Interatividade, Micro-Interações & Envio Direto Gratuito (FormSubmit.co)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     8. CONTACT FORM & VALIDATION
+     8. CONTACT FORM VIA FORMSUBMIT.CO (100% GRATUITO / SEM DNS)
      ========================================================================== */
   const contactForm = document.getElementById('contactForm');
   const inputNome = document.getElementById('nome');
@@ -300,6 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const formFeedback = document.getElementById('formFeedback');
   const successModalOverlay = document.getElementById('successModalOverlay');
   const successCloseBtn = document.getElementById('successCloseBtn');
+
+  // E-mail de destino configurável
+  const DESTINATION_EMAIL = 'arluckis@gmail.com';
 
   // Phone Mask: (XX) XXXXX-XXXX
   if (inputTelefone) {
@@ -386,24 +389,37 @@ document.addEventListener('DOMContentLoaded', () => {
         formFeedback.style.color = '';
       }
 
-      const formData = {
-        nome: inputNome.value.trim(),
-        telefone: inputTelefone.value.trim(),
-        email: inputEmail.value.trim(),
-        area: selectArea ? selectArea.value : 'Direito Cível',
-        mensagem: inputMensagem.value.trim()
+      const nomeVal = inputNome.value.trim();
+      const telefoneVal = inputTelefone.value.trim();
+      const emailVal = inputEmail.value.trim();
+      const areaVal = selectArea ? selectArea.value : 'Direito Cível';
+      const mensagemVal = inputMensagem.value.trim();
+
+      const payload = {
+        'Nome do Interessado': nomeVal,
+        'Telefone / WhatsApp': telefoneVal,
+        'E-mail': emailVal,
+        'Assunto': areaVal,
+        'Mensagem': mensagemVal,
+        '_subject': `[Novo Contato HK Advocacia] ${nomeVal} - ${areaVal}`,
+        '_template': 'table',
+        '_captcha': 'false'
       };
 
       try {
-        const response = await fetch('/api/contato', {
+        // Envio direto via FormSubmit AJAX (100% gratuito e sem necessidade de servidor ou DNS)
+        const response = await fetch(`https://formsubmit.co/ajax/${DESTINATION_EMAIL}`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
 
         const result = await response.json().catch(() => ({}));
 
-        if (response.ok && result.success) {
+        if (response.ok && (result.success === 'true' || result.success === true || result.message)) {
           triggerGoldConfetti();
           if (successModalOverlay) {
             successModalOverlay.classList.add('active');
@@ -412,14 +428,14 @@ document.addEventListener('DOMContentLoaded', () => {
           contactForm.reset();
         } else {
           if (formFeedback) {
-            formFeedback.textContent = result.error || 'Não foi possível enviar a mensagem. Tente novamente.';
+            formFeedback.textContent = result.message || 'Não foi possível enviar a mensagem no momento. Tente pelo WhatsApp.';
             formFeedback.style.color = '#f43f5e';
           }
         }
       } catch (err) {
-        console.error('Erro na requisição:', err);
+        console.error('Erro no envio do formulário:', err);
         if (formFeedback) {
-          formFeedback.textContent = 'Erro de conexão ao enviar a mensagem. Tente novamente ou use o WhatsApp.';
+          formFeedback.textContent = 'Erro de conexão ao enviar. Por favor, tente novamente ou utilize o botão do WhatsApp.';
           formFeedback.style.color = '#f43f5e';
         }
       } finally {
