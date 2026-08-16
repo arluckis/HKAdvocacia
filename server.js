@@ -16,15 +16,17 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve arquivos estáticos da raiz e da pasta public
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 app.use('/api', contactRoutes);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Apenas escuta na porta se não for ambiente serverless (Vercel)
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`=================================================`);
