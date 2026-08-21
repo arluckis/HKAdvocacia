@@ -699,6 +699,8 @@ h1, h2, h3, h4, h5, h6, p, span, a, button, li, label, div {
   text-align: center;
   max-width: 780px;
   margin: 0 auto 4.5rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .section-tag {
@@ -1071,6 +1073,8 @@ h1, h2, h3, h4, h5, h6, p, span, a, button, li, label, div {
 .faq-container {
   max-width: 860px;
   margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .faq-list {
